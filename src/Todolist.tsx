@@ -30,6 +30,7 @@ export function Todolist(props: PropsType) {
         props.addTask(title, props.id);
     }
 
+
     const removeTodolist = () => {
         props.removeTodolist(props.id);
     }
