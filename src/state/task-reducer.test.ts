@@ -2,9 +2,35 @@ import {AddTaskAC, changeTaskStatusAC, changeTaskTitleAC, tasksReducer} from './
 import {TasksStateType, TodolistType} from '../App';
 import {removeTaskAC} from "./task-reducer";
 import {AddTodolistAC, RemoveTodolistAC, todolistsReducer} from "./todolists-reducer";
+import {v1} from "uuid";
+
+
+let startState:TasksStateType
+
+beforeEach(()=>{
+
+     startState = {
+        "todolistId1": [
+            { id: "1", title: "CSS", isDone: false },
+            { id: "2", title: "JS", isDone: true },
+            { id: "3", title: "React", isDone: false }
+        ],
+        "todolistId2": [
+            { id: "1", title: "bread", isDone: false },
+            { id: "2", title: "milk", isDone: true },
+            { id: "3", title: "tea", isDone: false }
+        ]
+    }
+
+})
+
+
+
+
+
 
 test('correct task should be deleted from correct array', () => {
-    const startState: TasksStateType = {
+     startState = {
         "todolistId1": [
             { id: "1", title: "CSS", isDone: false },
             { id: "2", title: "JS", isDone: true },
@@ -37,7 +63,7 @@ test('correct task should be deleted from correct array', () => {
 
 
 test('correct task should be added to correct array', () => {
-    const startState: TasksStateType = {
+    startState = {
         "todolistId1": [
             { id: "1", title: "CSS", isDone: false },
             { id: "2", title: "JS", isDone: true },
@@ -62,7 +88,7 @@ test('correct task should be added to correct array', () => {
 })
 
 test('status of specified task should be changed', () => {
-    const startState: TasksStateType = {
+     startState = {
         "todolistId1": [
             { id: "1", title: "CSS", isDone: false },
             { id: "2", title: "JS", isDone: true },
@@ -85,7 +111,7 @@ test('status of specified task should be changed', () => {
 
 
 test('title of specified task should be changed', () => {
-    const startState: TasksStateType = {
+     startState = {
         "todolistId1": [
             { id: "1", title: "CSS", isDone: false },
             { id: "2", title: "JS", isDone: true },
